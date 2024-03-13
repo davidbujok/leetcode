@@ -65,6 +65,32 @@ const addTwoNumbers = function(l1, l2) {
   return headNode.next;
 };
 
+// Solution from leetcode solutions, cool rescursive function
+// function takes two node lists
+var addTwoNumbersRecursion = function(l1, l2) {
+  // defined anonymous function inside that takes those two node lists and carry(rest), author
+  // naming
+    const iter = (n1, n2, rest = 0) => {
+    // base case, meaning recursion will start unwinding when the statement below is true and it's
+    // true when both linked lists are null and there's no carry number
+        if (!n1 && !n2 && !rest) return null;
+    // javascript syntax is crazy, 
+    // if linked list is null then value becomes 0, all three values are added
+        const newVal = (n1?.val || 0) + (n2?.val || 0) + rest;
+    // fun part, we recursively call anonymous function iter and we pass another two nodes/linked
+    // lists and the carry - here carry is calculated by dividing the sum of all three variables 
+    // by 10, because the calculated number is passed to Math.floor the actual number passed as
+    // carry will be always either 0 or 1 (assumption that we're dealing with single digits in nodes)
+        const nextNode = iter(n1?.next, n2?.next, Math.floor(newVal / 10));
+    // finally we create new nodes as recursion is unwinding. 
+    // when recursion finished the last returned node is the head
+        return new ListNode(newVal % 10, nextNode);
+    }
+
+    
+    return iter(l1, l2);
+};
+
 let linkedList1 = new ListNode(3);
 let linkedList2 = new ListNode(1);
 linkedList1.next = linkedList2;
@@ -78,4 +104,6 @@ let secondLinkedList3 = new ListNode(3)
 secondLinkedList2.next = secondLinkedList3;
 
 console.log(addTwoNumbers(linkedList1, secondLinkedList1));
+
+
 

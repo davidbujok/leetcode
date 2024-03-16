@@ -1,3 +1,4 @@
+// STRING SOLUTION
 function reverseInt(x) {
 
   let stringFromNumber = x.toString();
@@ -20,8 +21,7 @@ function reverseInt(x) {
   }
 }
 
-// console.log(reverseInt(129))
-
+// MATH SOLUTION
 function reverseIntMath(leftNumbers) {
 
   let reversedNumber = "";
@@ -49,6 +49,13 @@ function reverseIntMath(leftNumbers) {
     return negative ? reversedNumber * - 1: Number(reversedNumber);
   }
 }
+
+// Cool solution from leet code solutions
+var reverse = function(x) {
+  const absReversed = Math.abs(x).toString().split('').reverse().join('');
+  if (absReversed > 2**31) return 0;
+  return absReversed * Math.sign(x);
+};
 
 console.log(reverseIntMath(129))
 console.log(reverseIntMath(-523))

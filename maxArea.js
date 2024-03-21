@@ -1,24 +1,28 @@
 var maxArea = function(height) {
+  if ( height.length === 2 ) {
+    let a = Math.min.apply(null, height);
 
-  let theBiggestContainer = 0;
-  for (let i = 0; i < height.length; i++) {
-    const pillar = height[i]
+    return a * a;
+  }
 
-    for (let j = i + 1; j < height.length; j++) {
-      const pillarToCompare = height[j]
+  let l = 0
+  let r = height.length - 1
 
-      if (pillarToCompare > pillar) {
-        let container = pillar * (j - i)
-        theBiggestContainer = Math.max(container, theBiggestContainer)
-      } else {
-        let container =  pillarToCompare * (j - i)
-        theBiggestContainer = Math.max(container, theBiggestContainer)
-      }
+  let biggestArea = 0;
+  while (l < r) {
+
+    let area = Math.min(height[l], height[r]) * (r - l);
+    biggestArea = Math.max(area, biggestArea);
+
+    if (height[l] < height[r]) {
+      l++
+    } else {
+      r--
     }
   }
 
-  console.log(theBiggestContainer)
-  return theBiggestContainer
+  console.log(biggestArea)
+  return biggestArea
 };
 
 let height = [1,8,6,2,5,4,8,3,7]

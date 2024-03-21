@@ -2,7 +2,6 @@
 function reverseInt(x) {
 
   let stringFromNumber = x.toString();
-
   let arrj = stringFromNumber.split("");
   arrj.reverse();
   if (arrj[arrj.length - 1] === "-") {
@@ -20,7 +19,6 @@ function reverseInt(x) {
     return 0
   }
 }
-
 // MATH SOLUTION
 function reverseIntMath(leftNumbers) {
 
@@ -43,6 +41,7 @@ function reverseIntMath(leftNumbers) {
 
   formula(leftNumbers)
 
+  
   if (reversedNumber > Math.pow(2,31) || reversedNumber < Math.pow(-2,31) ) {
     return 0
   } else {
@@ -75,6 +74,4 @@ function reverse(x) {
 console.log(reverseIntMath(129))
 console.log(reverseIntMath(-523))
 console.log(reverseIntMath(1534236469));
-// reverseIntMath(-129)
-
 

@@ -2,9 +2,7 @@ let twoSum = function(nums, target) {
   
   // Hold each value from the nums array along with its index inside the Object results
   let results = {}
-  nums.forEach((num, index) => {;
-    results[num] = index;
-  })
+  results.
 
   // Iterate over nums array and subtract each value from the array from target value
   // The result will be the number you're looking for.
@@ -23,6 +21,7 @@ let twoSum = function(nums, target) {
     }
   }
 };
+continue
 
 let some_numbers = [3, 2, 4, 5, 9, 3]
 let some_target = 11

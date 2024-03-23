@@ -31,6 +31,41 @@ var romanToInt = function(s) {
   console.log(num)
 };
 
+symbols = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000
+};
+
+var romanToIntEasy = function(s) {
+    value = 0;
+    for(let i = 0; i < s.length; i+=1){
+        symbols[s[i]] < symbols[s[i+1]] ? value -= symbols[s[i]]: value += symbols[s[i]]
+    }
+    console.log(value)
+    return value
+};
+
+// same idea a slightly different syntax
+var romanToIntEasyTwo = function(s) {
+    const map = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000};
+    let num = 0;
+    
+    for(let i = 0; i < s.length; i++) {
+        const curr = map[s[i]], next = map[s[i+1]];
+        if(curr < next) num -= curr;
+        else num += curr;
+    }
+    return num;    
+};
+
 romanToInt("III")
 romanToInt("LVIII")
 romanToInt("MCMXCIV")
+romanToIntEasy("III")
+romanToIntEasy("LVIII")
+romanToIntEasy("MCMXCIV")
